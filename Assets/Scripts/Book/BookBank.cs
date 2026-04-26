@@ -5,6 +5,10 @@ using UnityEngine;
 public class BookBank : MonoBehaviour
 {
     public string[] bookTitle;
-    public Sprite[] designIndex;
+    [TextArea]
     public string[] bookDescription;
+
+    public Sprite bookCoverSprite;
+    public Sprite bookLabelSprite;
+    public Sprite bookPaperSprite;
 }

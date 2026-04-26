@@ -11,6 +11,5 @@ public class NPCBank : MonoBehaviour
     public Sprite[] hairBackIndex;
     public Sprite[] outfitIndex;
     public Sprite[] faceIndex;
-
     public Sprite[] skinIndex;
 }

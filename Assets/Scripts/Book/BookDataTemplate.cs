@@ -7,12 +7,11 @@ public class BookDataTemplate : ScriptableObject
 {
     [Header("Book base")]
     public int bookID;
-    public int bookTitle;
+    public int bookTitlE;
 
     [Header("Book Details")]
-    public Color bookColor;
-    public int designIndex;
-    public int bookDescription;
+    public Color bookColoR;
+    public int bookDescriptioN;
 
     [Header("Book Status")]
     public bool isBorrowed = false;

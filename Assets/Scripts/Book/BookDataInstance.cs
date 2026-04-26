@@ -7,6 +7,8 @@ public class BookDataInstance : MonoBehaviour
     public int bookTotal = 10;
     public List<BookDataTemplate> allBooks = new List<BookDataTemplate>();
     public BookBank bank;
+
+    public BookAssembler bookVisualTest; // Referensi ke assembler untuk testing visual
     
     // Start is called before the first frame update
     void Start()
@@ -23,14 +25,20 @@ public class BookDataInstance : MonoBehaviour
 
             // Assign random values to the new Book
             newBook.bookID = i + 1; // Unique ID starting from 1
-            newBook.bookTitle = Random.Range(0, bank.bookTitle.Length);
-            newBook.bookColor = new Color(Random.value, Random.value, Random.value); // Random color
-            newBook.designIndex = Random.Range(0, bank.designIndex.Length);
-            newBook.bookDescription = newBook.bookTitle; // Assuming description is the same as title for now
+            newBook.bookTitlE = Random.Range(0, bank.bookTitle.Length);
+            newBook.bookColoR = new Color(Random.value, Random.value, Random.value); // Random color
+            newBook.bookDescriptioN = newBook.bookTitlE; 
 
             // Add the Book to the list
             allBooks.Add(newBook);
             
+        }
+
+        // TEST: Tampilkan buku pertama (index 0) ke console
+        if(allBooks.Count > 0)       
+        {
+            bookVisualTest.AssembleBook(allBooks[0]);
+            Debug.Log("Buku pertama: " + bank.bookTitle[allBooks[0].bookTitlE] + " dengan warna: " + allBooks[0].bookColoR);
         }
     }
 }
