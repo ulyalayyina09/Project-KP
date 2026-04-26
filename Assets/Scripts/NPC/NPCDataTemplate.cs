@@ -5,13 +5,15 @@ public class NPCDataTemplate : ScriptableObject
 {
     [Header("NPC Identity")]
     public int npcID;
-    public int npcFirstName;
-    public int npcLastName;
+    public int npcFirstNamE;
+    public int npcLastNamE;
 
     [Header("NPC Appearance")]
-    public int hairIndex;
-    public int outfitIndex;
-    public int skinIndex;
+    public int hairFrontIndeX;
+    public int hairBackIndeX;
+    public int outfitIndeX;
+    public int skinIndeX;
+    public int faceIndeX;
 
     [Header("NPC Status")]
     public bool isBorrowing = false;

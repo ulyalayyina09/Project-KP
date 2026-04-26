@@ -6,6 +6,7 @@ public class BookDataInstance : MonoBehaviour
 {
     public int bookTotal = 10;
     public List<BookDataTemplate> allBooks = new List<BookDataTemplate>();
+    public BookBank bank;
     
     // Start is called before the first frame update
     void Start()
@@ -22,9 +23,9 @@ public class BookDataInstance : MonoBehaviour
 
             // Assign random values to the new Book
             newBook.bookID = i + 1; // Unique ID starting from 1
-            newBook.bookTitle = Random.Range(0, bank.bookTitles.Length);
+            newBook.bookTitle = Random.Range(0, bank.bookTitle.Length);
             newBook.bookColor = new Color(Random.value, Random.value, Random.value); // Random color
-            newBook.designIndex = Random.Range(0, bank.designs.Length);
+            newBook.designIndex = Random.Range(0, bank.designIndex.Length);
             newBook.bookDescription = newBook.bookTitle; // Assuming description is the same as title for now
 
             // Add the Book to the list
