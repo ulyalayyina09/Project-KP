@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class BookBank : MonoBehaviour
 {
-    public string[] bookTitle;
+    public string[] Title;
     [TextArea]
-    public string[] bookDescription;
+    public string[] Description;
 
     public Sprite bookCoverSprite;
     public Sprite bookLabelSprite;

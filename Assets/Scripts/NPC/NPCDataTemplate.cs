@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(fileName = "NPCData", menuName = "ScriptableObjects/NPCData")]
@@ -18,5 +20,5 @@ public class NPCDataTemplate : ScriptableObject
     [Header("NPC Status")]
     public bool isBorrowing = false;
     public int borrowingTotal = 0;
-    //public List<int> borrowedBookIDs = new List<int>();
+    public List<int> borrowedBookIDs = new List<int>();
 }

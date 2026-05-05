@@ -11,7 +11,7 @@ public class NPCDataInstance : MonoBehaviour
     public NPCAssembler NPCVisualTest; // Referensi ke assembler untuk testing visual
     
     // Start is called before the first frame update
-    void Start()
+    public void CreateEverything()
     {
         GenerateNPCs();
     }

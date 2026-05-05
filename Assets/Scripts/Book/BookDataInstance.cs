@@ -4,41 +4,53 @@ using UnityEngine;
 
 public class BookDataInstance : MonoBehaviour
 {
-    public int bookTotal = 10;
+    public int bookVariantTotal = 10;
+    public int totalLibBooks;
     public List<BookDataTemplate> allBooks = new List<BookDataTemplate>();
     public BookBank bank;
 
     public BookAssembler bookVisualTest; // Referensi ke assembler untuk testing visual
     
     // Start is called before the first frame update
-    void Start()
+    public void CreateEverything()
     {
         GenerateBooks();
     }
 
     void GenerateBooks()
     {
-        for (int i = 0; i < bookTotal; i++)
+        int globalIDCounter = 1; 
+
+        for (int i = 0; i < bookVariantTotal; i++)
         {
-            // Create new instance of BookDataTemplate
-            BookDataTemplate newBook = ScriptableObject.CreateInstance<BookDataTemplate>();
+            int selectedTitleIndex = Random.Range(0, bank.Title.Length);
+            Color selectedColor = new Color(Random.value, Random.value, Random.value);
 
-            // Assign random values to the new Book
-            newBook.bookID = i + 1; // Unique ID starting from 1
-            newBook.bookTitlE = Random.Range(0, bank.bookTitle.Length);
-            newBook.bookColoR = new Color(Random.value, Random.value, Random.value); // Random color
-            newBook.bookDescriptioN = newBook.bookTitlE; 
+            int randomCopyCount = Random.Range(1, 8);
 
-            // Add the Book to the list
-            allBooks.Add(newBook);
-            
+            for (int j = 0; j < randomCopyCount; j++)
+            {
+                BookDataTemplate newBook = ScriptableObject.CreateInstance<BookDataTemplate>();
+
+                newBook.bookId = globalIDCounter;
+                newBook.bookTitle = selectedTitleIndex;
+                newBook.bookColor = selectedColor;
+                newBook.bookDescription = selectedTitleIndex;
+                newBook.copyId = j + 1;
+                newBook.totalCopies = randomCopyCount;
+
+                allBooks.Add(newBook);
+                globalIDCounter++;
+            }
         }
+
+        totalLibBooks = allBooks.Count;
 
         // TEST: Tampilkan buku pertama (index 0) ke console
         if(allBooks.Count > 0)       
         {
             bookVisualTest.AssembleBook(allBooks[0]);
-            Debug.Log("Buku pertama: " + bank.bookTitle[allBooks[0].bookTitlE] + " dengan warna: " + allBooks[0].bookColoR);
+            Debug.Log("Buku pertama: " + bank.Title[allBooks[0].bookTitle] + " dengan warna: " + allBooks[0].bookColor);
         }
     }
 }
