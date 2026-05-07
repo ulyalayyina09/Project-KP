@@ -25,7 +25,7 @@ public class RelationManager : MonoBehaviour
     {
         var bookList = bookFactory.allBooks;
         var npcList = npcFactory.allNPCs;
-
+        
         float percentage = Random.Range(0.3f, 0.6f);
         int borrowedCount = Mathf.FloorToInt(npcList.Count * percentage);
 
@@ -44,7 +44,7 @@ public class RelationManager : MonoBehaviour
                     int randomBookIndex = Random.Range(0, availableBooks.Count);
                     var selectedBook = availableBooks[randomBookIndex];
 
-                    selectedNPC.borrowedBookIDs.Add(selectedBook.bookId);
+                    selectedNPC.borrowedBookIds.Add(selectedBook.bookId);
                     selectedNPC.isBorrowing = true;
                     selectedNPC.borrowingTotal += 1;
 
@@ -53,7 +53,7 @@ public class RelationManager : MonoBehaviour
                     
                     succeedCount++;
 
-                    Debug.Log("NPC " + selectedNPC.npcID + " borrowed book " + selectedBook.bookId);
+                    Debug.Log("NPC " + selectedNPC.npcId + " borrowed book " + selectedBook.bookId);
                 }
                 
                 else

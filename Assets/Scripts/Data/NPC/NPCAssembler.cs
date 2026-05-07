@@ -17,18 +17,18 @@ public class NPCAssembler : MonoBehaviour
         if (bank == null) Debug.LogError("Woi, Bank-nya belum dipasang di Inspector!");
         if (bodyRenderer == null) Debug.LogError("Woi, Body Renderer-nya belum dipasang!");
 
-        bodyRenderer.sprite = bank.skinIndex[data.skinIndeX];
+        bodyRenderer.sprite = bank.skin[data.skinIndex];
 
         // 2. Pasang Gambar Muka
-        faceRenderer.sprite = bank.faceIndex[data.faceIndeX ];
+        faceRenderer.sprite = bank.face[data.faceIndex];
 
         // 3. Pasang Gambar Rambut
-        fronthairRenderer.sprite = bank.hairFrontIndex[data.hairFrontIndeX];
-        backhairRenderer.sprite = bank.hairBackIndex[data.hairBackIndeX];
+        fronthairRenderer.sprite = bank.hairFront[data.hairFrontIndex];
+        backhairRenderer.sprite = bank.hairBack[data.hairBackIndex];
 
         // 4. Pasang Gambar Baju
-        outfitRenderer.sprite = bank.outfitIndex[data.outfitIndeX];
-        
-        Debug.Log("Visual dirakit untuk ID: " + data.npcID);
+        outfitRenderer.sprite = bank.outfit[data.outfitIndex];
+
+        Debug.Log("Visual dirakit untuk ID: " + data.npcId);
     }
 }

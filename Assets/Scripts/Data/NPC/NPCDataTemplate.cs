@@ -6,19 +6,19 @@ using UnityEngine;
 public class NPCDataTemplate : ScriptableObject
 {
     [Header("NPC Identity")]
-    public int npcID;
-    public int npcFirstNamE;
-    public int npcLastNamE;
+    public int npcId;
+    public int npcFirstName;
+    public int npcLastName;
 
     [Header("NPC Appearance")]
-    public int hairFrontIndeX;
-    public int hairBackIndeX;
-    public int outfitIndeX;
-    public int skinIndeX;
-    public int faceIndeX;
+    public int hairFrontIndex;
+    public int hairBackIndex;
+    public int outfitIndex;
+    public int skinIndex;
+    public int faceIndex;
 
     [Header("NPC Status")]
     public bool isBorrowing = false;
     public int borrowingTotal = 0;
-    public List<int> borrowedBookIDs = new List<int>();
+    public List<int> borrowedBookIds = new List<int>();
 }

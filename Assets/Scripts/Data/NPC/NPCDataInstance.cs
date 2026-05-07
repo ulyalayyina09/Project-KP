@@ -24,14 +24,14 @@ public class NPCDataInstance : MonoBehaviour
             NPCDataTemplate newNPC = ScriptableObject.CreateInstance<NPCDataTemplate>();
 
             // Assign random values to the new NPC
-            newNPC.npcID = i + 1; //pkoknya mulai dri ONE wk
-            newNPC.npcFirstNamE = Random.Range(0, bank.npcFirstNames.Length);
-            newNPC.npcLastNamE = Random.Range(0, bank.npcLastNames.Length);
-            newNPC.hairFrontIndeX = Random.Range(0, bank.hairFrontIndex.Length);
-            newNPC.hairBackIndeX = newNPC.hairFrontIndeX;
-            newNPC.outfitIndeX = Random.Range(0, bank.outfitIndex.Length);
-            newNPC.skinIndeX = Random.Range(0, bank.skinIndex.Length);
-            newNPC.faceIndeX = Random.Range(0, bank.faceIndex.Length);
+            newNPC.npcId = i + 1; //pkoknya mulai dri ONE wk
+            newNPC.npcFirstName = Random.Range(0, bank.npcFirstNames.Length);
+            newNPC.npcLastName = Random.Range(0, bank.npcLastNames.Length);
+            newNPC.hairFrontIndex = Random.Range(0, bank.hairFront.Length);
+            newNPC.hairBackIndex = newNPC.hairFrontIndex;
+            newNPC.outfitIndex = Random.Range(0, bank.outfit.Length);
+            newNPC.skinIndex = Random.Range(0, bank.skin.Length);
+            newNPC.faceIndex = Random.Range(0, bank.face.Length);
 
             // Add the new NPC to the list
             allNPCs.Add(newNPC);

@@ -13,12 +13,13 @@ public class BookDataTemplate : ScriptableObject
     public Color bookColor;
     public int bookDescription;
 
+    [Header("Copy Info")]
+    public int copyId;
+    public int totalCopies;
+
     [Header("Book Status")]
     public bool isBorrowed = false;
     public bool isDamaged = false;
     public bool isAvailable = true;
-
-    [Header("Copy Info")]
-    public int copyId;
-    public int totalCopies;
+    public string currentLoanId;
 }
