@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPCBank : MonoBehaviour
+[CreateAssetMenu(fileName = "NewNPCBank", menuName = "Library/NPC Bank")]  
+public class NPCBank : ScriptableObject
 {
     public string[] npcFirstNames;
     public string[] npcLastNames;

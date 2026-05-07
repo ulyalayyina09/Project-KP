@@ -2,7 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BookBank : MonoBehaviour
+[CreateAssetMenu(fileName = "NewBookBank", menuName = "Library/Book Bank")]
+public class BookBank : ScriptableObject
 {
     public string[] Title;
     [TextArea]

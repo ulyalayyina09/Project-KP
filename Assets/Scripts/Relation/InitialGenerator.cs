@@ -11,15 +11,15 @@ public class InitialGenerator : MonoBehaviour
 
     void Start()
     {
-        bookFactory.CreateEverything();
-        npcFactory.CreateEverything();
+        bookFactory.GenerateBooks();
+        npcFactory.GenerateNPCs();
 
         InitialBorrowing();
     }
 
     void InitialBorrowing()
     {
-        int borrowingTarget = Mathf.FloorToInt(npcFactory.npcTotal * Random.Range(0.3f, 0.6f));
+        int borrowingTarget = Mathf.FloorToInt(npcFactory.npcTotal * Random.Range(0.4f, 0.6f));
         int succeedCounter = 0;
 
         while (succeedCounter < borrowingTarget)
@@ -35,14 +35,14 @@ public class InitialGenerator : MonoBehaviour
 
             if (selectedNPC.borrowingTotal < 2)
             {
-                Matchmaker.Matching(selectedNPC);
+                matchmaker.Matching(selectedNPC);
 
                 var targetBook = bookFactory.allBooks.Find(b => b.bookId == selectedNPC.bookRequest);
                 if (targetBook != null && targetBook.isAvailable)
                 {
-                    string borrowingDate = InnitialBorrowingDate();
+                    string borrowingDate = InitialBorrowingDate();
                     
-                    TransactionManager.Borrowing(selectedNPC, targetBook, borrowingDate);
+                    transactionManager.Borrowing(selectedNPC, targetBook, borrowingDate);
                     succeedCounter++;
                 }
             }
@@ -50,7 +50,7 @@ public class InitialGenerator : MonoBehaviour
 
     }
 
-    string InnitialBorrowingDate()
+    string InitialBorrowingDate()
     {
         System.DateTime today = new System.DateTime(2025, 9, 14);
         int backDays = Random.Range(1, 30);

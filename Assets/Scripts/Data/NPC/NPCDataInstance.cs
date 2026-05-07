@@ -32,9 +32,9 @@ public class NPCDataInstance : MonoBehaviour
         }
 
         // TEST: Tampilkan NPC pertama (index 0) ke visualizer
-        if(allNPCs.Count > 0)
-        {
-            NPCVisualTest.Assemble(allNPCs[0]);
-        }
+        //if(allNPCs.Count > 0)
+        //{
+        //    NPCVisualTest.Assemble(allNPCs[0]);
+        //}
     }
 }

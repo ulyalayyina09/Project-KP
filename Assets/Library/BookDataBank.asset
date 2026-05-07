@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e02c3ea8e86f8b4bbedf3e00491d893, type: 3}
+  m_Name: BookDataBank
+  m_EditorClassIdentifier: 
+  Title:
+  - Harry Potter
+  - Naruto
+  - Frieren
+  - The Hunger Games
+  Description:
+  - cerita 1
+  - cerita 2
+  - cerita 3
+  - cerita 4
+  bookCoverSprite: {fileID: 21300000, guid: fe1c2ddba79f50d4c9e44a4f291c616b, type: 3}
+  bookLabelSprite: {fileID: 21300000, guid: c21574f5b1dc76640ae7a14202d04d3a, type: 3}
+  bookPaperSprite: {fileID: 21300000, guid: eac8f739dcbb23841986a5de2b68fac4, type: 3}

@@ -41,10 +41,10 @@ public class BookDataInstance : MonoBehaviour
         totalLibBooks = allBooks.Count;
 
         // TEST: Tampilkan buku pertama (index 0) ke console
-        if(allBooks.Count > 0)       
-        {
-            bookVisualTest.AssembleBook(allBooks[0]);
-            Debug.Log("Buku pertama: " + bank.Title[allBooks[0].bookTitle] + " dengan warna: " + allBooks[0].bookColor);
-        }
+        //if(allBooks.Count > 0)       
+        //{
+        //    bookVisualTest.AssembleBook(allBooks[0]);
+        //    Debug.Log("Buku pertama: " + bank.Title[allBooks[0].bookTitle] + " dengan warna: " + allBooks[0].bookColor);
+        //}
     }
 }
