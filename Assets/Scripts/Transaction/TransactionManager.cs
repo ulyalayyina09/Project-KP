@@ -17,15 +17,21 @@ public class TransactionManager : MonoBehaviour
         book.isBorrowed = true;
         book.isAvailable = false;
 
+        System.DateTime lDate = System.DateTime.Parse(date);
+        System.DateTime dDate = lDate.AddDays(7);
+
         LoanEntry entry = new LoanEntry
         {
             npcId = npc.npcId,
             npcName = npcBank.npcFirstNames[npc.npcFirstName] + " " + npcBank.npcLastNames[npc.npcLastName],
             bookId = book.bookId,
             bookTitle = bookBank.Title[book.bookTitle],
-            loanDate = System.DateTime.Parse(date),
-            dueDate = System.DateTime.Parse(date).AddDays(7),
-            status = LoanStatus.Borrowing
+            loanDate = lDate,
+            dueDate = dDate,
+            status = LoanStatus.Borrowing,
+
+            loanDateStr = lDate.ToString("yyyy-MM-dd"),
+            dueDateStr = dDate.ToString("yyyy-MM-dd")
         };
 
         history.AddRecord(entry);
@@ -50,8 +56,12 @@ public class TransactionManager : MonoBehaviour
         var record = history.allRecords.Find(r => r.loanId == book.currentLoanId);
         if (record != null)
         {
-            record.returnDate = System.DateTime.Parse(date);
+            System.DateTime rDate = System.DateTime.Parse(date);
+            
+            record.returnDate = rDate;
             record.status = LoanStatus.Returned;
+
+            record.returnDateStr = rDate.ToString("yyyy-MM-dd");
         }
 
         book.currentLoanId = null;

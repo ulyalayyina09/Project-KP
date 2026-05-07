@@ -16,6 +16,11 @@ public class LoanEntry
     public System.DateTime dueDate; 
     public System.DateTime? returnDate = null;   
 
+    [Header("Time Info (Read Only)")]
+    public string loanDateStr;
+    public string dueDateStr;
+    public string returnDateStr;
+
     [Header("Status")]
     public LoanStatus status;       // Borrowing, Returned, Overdue
     public BookCondition condition = BookCondition.Good;    // kosong dulu
