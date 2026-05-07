@@ -193,27 +193,27 @@ MonoBehaviour:
   - Smith
   - Evan
   - Wood
-  hairFrontIndex:
+  hairFront:
   - {fileID: 21300000, guid: fe8d3f93a3eaaed40a08cce99862fcae, type: 3}
   - {fileID: 21300000, guid: de86c24ab503fd649a3bf2462c2f5163, type: 3}
+  - {fileID: 21300000, guid: 424cf14c50370b14f844e56777759ba3, type: 3}
   - {fileID: 21300000, guid: 158e057ccc4aa0f488d699837632244c, type: 3}
-  hairBackIndex:
+  hairBack:
   - {fileID: 21300000, guid: 35b14e74ece0c424888a9b1bff8893d8, type: 3}
   - {fileID: 21300000, guid: 2e9bd3007b50c5a49b81cd1940f0eed4, type: 3}
-  - {fileID: 0}
-  outfitIndex:
-  - {fileID: 21300000, guid: a001dc236f405c5479acc44cbe78ea66, type: 3}
+  - {fileID: 21300000, guid: 33a9ac13c44cc0842a264af63c86f712, type: 3}
+  outfit:
   - {fileID: 21300000, guid: 7526e78ac6c4c6648b595f9823f7e1f0, type: 3}
   - {fileID: 21300000, guid: e1e29b8ecacfb7049ad8eb0d257d6355, type: 3}
-  faceIndex:
-  - {fileID: 21300000, guid: fa53aceff0ec3344587390629cc16c46, type: 3}
+  - {fileID: 21300000, guid: 3ffedc77b9fda1d4f8985e4be2e49f2b, type: 3}
+  face:
   - {fileID: 21300000, guid: 0ef97583d5f6509429f1de5a7d9faa21, type: 3}
   - {fileID: 21300000, guid: 74a318c2055b49f4f8e509dfba3e463f, type: 3}
-  skinIndex:
+  - {fileID: 21300000, guid: 88a37787622691944bc51268b7710f4f, type: 3}
+  skin:
   - {fileID: 21300000, guid: ceeb01250b33ba14a85ad981a602bb3d, type: 3}
   - {fileID: 21300000, guid: b332e76517b459f429366c943b430d75, type: 3}
   - {fileID: 21300000, guid: 6d208a742918d204bbe7f8733f6f06da, type: 3}
-  - {fileID: 21300000, guid: df4737d4dc8b70b46abd79f7200fc4dd, type: 3}
 --- !u!1 &3466134704970746072
 GameObject:
   m_ObjectHideFlags: 0

@@ -9,14 +9,8 @@ public class NPCDataInstance : MonoBehaviour
     public NPCBank bank;
 
     public NPCAssembler NPCVisualTest; // Referensi ke assembler untuk testing visual
-    
-    // Start is called before the first frame update
-    public void CreateEverything()
-    {
-        GenerateNPCs();
-    }
 
-    void GenerateNPCs()
+    public void GenerateNPCs()
     {
         for (int i = 0; i < npcTotal; i++)
         {
@@ -40,7 +34,7 @@ public class NPCDataInstance : MonoBehaviour
         // TEST: Tampilkan NPC pertama (index 0) ke visualizer
         if(allNPCs.Count > 0)
         {
-            NPCVisualTest.Assemble(allNPCs[1]);
+            NPCVisualTest.Assemble(allNPCs[0]);
         }
     }
 }

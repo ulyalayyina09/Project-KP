@@ -10,14 +10,8 @@ public class BookDataInstance : MonoBehaviour
     public BookBank bank;
 
     public BookAssembler bookVisualTest; // Referensi ke assembler untuk testing visual
-    
-    // Start is called before the first frame update
-    public void CreateEverything()
-    {
-        GenerateBooks();
-    }
 
-    void GenerateBooks()
+    public void GenerateBooks()
     {
         int globalIDCounter = 1; 
 

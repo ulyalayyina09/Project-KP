@@ -21,4 +21,6 @@ public class NPCDataTemplate : ScriptableObject
     public bool isBorrowing = false;
     public int borrowingTotal = 0;
     public List<int> borrowedBookIds = new List<int>();
+
+    public int bookRequest;
 }
