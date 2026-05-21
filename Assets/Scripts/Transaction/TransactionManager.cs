@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class TransactionManager : MonoBehaviour
 {
-    public RecordHistory history;
-    public NPCBank npcBank;
-    public BookBank bookBank;
+    [SerializeField] private RecordHistory history;
 
-    public void Borrowing(NPCDataTemplate npc, BookDataTemplate book, string date)
+    public void Borrowing(NPCDataTemplate npc, string date)
     {
+        var book = npc.bookRequested;
+        
         npc.isBorrowing = true;
         npc.borrowingTotal += 1;
         npc.borrowedBookIds.Add(book.bookId);
@@ -23,9 +23,9 @@ public class TransactionManager : MonoBehaviour
         LoanEntry entry = new LoanEntry
         {
             npcId = npc.npcId,
-            npcName = npcBank.npcFirstNames[npc.npcFirstName] + " " + npcBank.npcLastNames[npc.npcLastName],
+            npcName = npc.npcFirstName + " " + npc.npcLastName,
             bookId = book.bookId,
-            bookTitle = bookBank.Title[book.bookTitle],
+            bookTitle = book.bookTitle,
             loanDate = lDate,
             dueDate = dDate,
             status = LoanStatus.Borrowing,
@@ -37,6 +37,7 @@ public class TransactionManager : MonoBehaviour
         history.AddRecord(entry);
 
         book.currentLoanId = entry.loanId;
+        npc.bookRequestId = 0;
     }
 
     public void Returning(NPCDataTemplate npc, BookDataTemplate book, string date)
@@ -65,5 +66,6 @@ public class TransactionManager : MonoBehaviour
         }
 
         book.currentLoanId = null;
+        npc.bookRequestId = 0;
     }
 }

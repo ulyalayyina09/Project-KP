@@ -7,11 +7,11 @@ public class BookDataTemplate : ScriptableObject
 {
     [Header("Book base")]
     public int bookId;
-    public int bookTitle;
+    public string bookTitle;
 
     [Header("Book Details")]
     public Color bookColor;
-    public int bookDescription;
+    public string bookDescription;
 
     [Header("Copy Info")]
     public int copyId;

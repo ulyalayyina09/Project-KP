@@ -4,12 +4,10 @@ using UnityEngine;
 
 public class BookDataInstance : MonoBehaviour
 {
-    public int bookVariantTotal = 10;
-    public int totalLibBooks;
+    [SerializeField] private int bookVariantTotal = 10;
+    [SerializeField] private int totalLibBooks = 0;
     public List<BookDataTemplate> allBooks = new List<BookDataTemplate>();
-    public BookBank bank;
-
-    public BookAssembler bookVisualTest; // Referensi ke assembler untuk testing visual
+    [SerializeField] private BookBank bank;
 
     public void GenerateBooks()
     {
@@ -27,9 +25,9 @@ public class BookDataInstance : MonoBehaviour
                 BookDataTemplate newBook = ScriptableObject.CreateInstance<BookDataTemplate>();
 
                 newBook.bookId = globalIDCounter;
-                newBook.bookTitle = selectedTitleIndex;
+                newBook.bookTitle = bank.Title[selectedTitleIndex];
                 newBook.bookColor = selectedColor;
-                newBook.bookDescription = selectedTitleIndex;
+                newBook.bookDescription = bank.Description[selectedTitleIndex];
                 newBook.copyId = j + 1;
                 newBook.totalCopies = randomCopyCount;
 

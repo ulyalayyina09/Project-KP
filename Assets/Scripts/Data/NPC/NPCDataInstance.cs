@@ -6,9 +6,7 @@ public class NPCDataInstance : MonoBehaviour
 {
     public int npcTotal = 5;
     public List<NPCDataTemplate> allNPCs = new List<NPCDataTemplate>();
-    public NPCBank bank;
-
-    public NPCAssembler NPCVisualTest; // Referensi ke assembler untuk testing visual
+    [SerializeField] private NPCBank bank;
 
     public void GenerateNPCs()
     {
@@ -19,8 +17,12 @@ public class NPCDataInstance : MonoBehaviour
 
             // Assign random values to the new NPC
             newNPC.npcId = i + 1; //pkoknya mulai dri ONE wk
-            newNPC.npcFirstName = Random.Range(0, bank.npcFirstNames.Length);
-            newNPC.npcLastName = Random.Range(0, bank.npcLastNames.Length);
+
+            int randomFirstNameIndex = Random.Range(0, bank.npcFirstNames.Length);
+            int randomLastNameIndex = Random.Range(0, bank.npcLastNames.Length);
+            newNPC.npcFirstName = bank.npcFirstNames[randomFirstNameIndex];
+            newNPC.npcLastName = bank.npcLastNames[randomLastNameIndex];
+
             newNPC.hairFrontIndex = Random.Range(0, bank.hairFront.Length);
             newNPC.hairBackIndex = newNPC.hairFrontIndex;
             newNPC.outfitIndex = Random.Range(0, bank.outfit.Length);

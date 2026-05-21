@@ -7,8 +7,8 @@ public class NPCDataTemplate : ScriptableObject
 {
     [Header("NPC Identity")]
     public int npcId;
-    public int npcFirstName;
-    public int npcLastName;
+    public string npcFirstName;
+    public string npcLastName;
 
     [Header("NPC Appearance")]
     public int hairFrontIndex;
@@ -22,5 +22,6 @@ public class NPCDataTemplate : ScriptableObject
     public int borrowingTotal = 0;
     public List<int> borrowedBookIds = new List<int>();
 
-    public int bookRequest;
+    public int bookRequestId;
+    public BookDataTemplate bookRequested;
 }
