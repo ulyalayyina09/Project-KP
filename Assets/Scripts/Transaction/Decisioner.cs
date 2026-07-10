@@ -21,6 +21,7 @@ public class Decisioner : MonoBehaviour
         currentTransactionNpc = npc;
     }
 
+<<<<<<< Updated upstream
     public void SelectBook(BookParts book)
     {
         selectedBook = book;
@@ -86,5 +87,62 @@ public class Decisioner : MonoBehaviour
         {
             return;
         }
+=======
+    public void AcceptButton()
+    {
+        ProcessSession(true);
+    }
+
+    public void RejectButton()
+    {
+        ProcessSession(false);
+    }
+
+    private void ProcessSession(bool isAccept)
+    {
+        if (currentTransactionNpc == null) return;
+
+        var theNPC = currentTransactionNpc.npcData;
+
+        Evaluator evaluator = FindObjectOfType<Evaluator>();
+        if (evaluator != null)
+        {
+            evaluator.EvaluateExpCard(theNPC, isAccept);
+        }
+
+        List<GameObject> booksToProcess = new List<GameObject>(bookAssembler.activeBooks);
+
+        foreach (GameObject bookObj in booksToProcess)
+        {
+            if (bookObj == null) continue;
+            BookParts bookComponent = bookObj.GetComponent<BookParts>();
+            if (bookComponent == null) continue;
+
+            var theBook = bookComponent.bookData;
+
+            if (isAccept)
+            {
+                if (!theBook.isBorrowed)
+                    transactionManager.Borrowing(theNPC, System.DateTime.Now.ToString("yyyy-MM-dd"));
+                else
+                    transactionManager.Returning(theNPC, theBook, System.DateTime.Now.ToString("yyyy-MM-dd"));
+            }
+            else
+            {
+                if (!theBook.isBorrowed)
+                {
+                    theNPC.bookRequestId = 0;
+                    theNPC.bookRequested = null;
+                }
+            }
+            
+            bookAssembler.ClearBook(bookObj);
+            cardAssembler.ClearCard();
+        }
+
+        // 3. Bersihkan kartu dan usir NPC   cardAssembler.ClearCard();
+        currentTransactionNpc.currentState = NPCState.Leaving;
+        currentTransactionNpc = null;
+>>>>>>> Stashed changes
     }
 }

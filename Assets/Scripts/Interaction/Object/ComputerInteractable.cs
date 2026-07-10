@@ -16,8 +16,8 @@ public class ComputerInteractable : MonoBehaviour, IInteractable
 
     public void OnSelect()
     {
-        spriteRenderer.color = new Color(0.3f, 0.3f, 0.3f, 1f);
         computerCanvas.SetActive(true);
+<<<<<<< Updated upstream
 
     }
 
@@ -25,5 +25,7 @@ public class ComputerInteractable : MonoBehaviour, IInteractable
     {
         spriteRenderer.color = new Color(0.23f, 0.23f, 0.23f);
         computerCanvas.SetActive(false);
+=======
+>>>>>>> Stashed changes
     }
 }

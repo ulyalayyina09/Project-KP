@@ -17,6 +17,7 @@ public class BookInteractable : MonoBehaviour, IInteractable
     // Update is called once per frame
     public void OnSelect()
     {
+<<<<<<< Updated upstream
         decisioner.SelectBook(bookParts);
         bookParts.selectedOutline.SetActive(true);
     }
@@ -27,3 +28,8 @@ public class BookInteractable : MonoBehaviour, IInteractable
         bookParts.selectedOutline.SetActive(false);
     }
 }
+=======
+        bookInspectPopUp.OpenPopUp(bookParts.bookData);
+    }
+}
+>>>>>>> Stashed changes
