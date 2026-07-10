@@ -6,14 +6,14 @@ public class Decisioner : MonoBehaviour
 {
     private NpcController currentTransactionNpc;
     private TransactionManager transactionManager;
-    private BookParts selectedBook;
-    
     private BookAssembler bookAssembler;
+    private CardAssembler cardAssembler;
 
-     void Start()
+    void Start()
     {
         transactionManager = FindObjectOfType<TransactionManager>();
         bookAssembler = FindObjectOfType<BookAssembler>();
+        cardAssembler = FindObjectOfType<CardAssembler>();
     }
     
     public void SetCurrentTransactionNpc(NpcController npc)
@@ -21,70 +21,77 @@ public class Decisioner : MonoBehaviour
         currentTransactionNpc = npc;
     }
 
-    public void SelectBook(BookParts book)
+    public void ProcessBook(BookParts book, bool isAccept)
     {
-        selectedBook = book;
-    }
-
-    public void AcceptOnClicked()
-    {
-        if (currentTransactionNpc == null || selectedBook == null)
-        {
-            return;
-        }
+        if (currentTransactionNpc == null || book == null) return;
 
         var theNPC = currentTransactionNpc.npcData;
-        var theBook = selectedBook.bookData;
+        var theBook = book.bookData;
 
-        if (theBook.isBorrowed == false)
+        if (isAccept)
         {
-            transactionManager.Borrowing(theNPC, System.DateTime.Now.ToString("yyyy-MM-dd"));
+            if (!theBook.isBorrowed)
+                transactionManager.Borrowing(theNPC, System.DateTime.Now.ToString("yyyy-MM-dd"));
+            else
+                transactionManager.Returning(theNPC, theBook, System.DateTime.Now.ToString("yyyy-MM-dd"));
         }
         else
         {
-            transactionManager.Returning(theNPC, theBook, System.DateTime.Now.ToString("yyyy-MM-dd"));
+            if (!theBook.isBorrowed)
+            {
+                theNPC.bookRequestId = 0; 
+                theNPC.bookRequested = null;
+            }
+            Debug.Log($"Buku {theBook.bookId} di-Reject.");
         }
 
-        bookAssembler.ClearBook(selectedBook.gameObject);
-        selectedBook = null;
+        bookAssembler.ClearBook(book.gameObject);
         ChangeStateLeaving();
     }
-
-    public void RejectOnClicked()
+    
+    public void ProcessCard(bool isAccept)
     {
-        if (currentTransactionNpc == null || selectedBook == null)
-        {
-            return;
-        }
+        if (currentTransactionNpc == null) return;
 
         var theNPC = currentTransactionNpc.npcData;
-        var theBook = selectedBook.bookData;
+        List<GameObject> booksToProcess = new List<GameObject>(bookAssembler.activeBooks);
 
-        if (theBook.isBorrowed == false)
+        foreach (GameObject bookObj in booksToProcess)
         {
-            theNPC.bookRequestId = 0; 
-            Debug.Log("Borrowing request from NPC " + theNPC.npcId + " has been rejected.");
-            
-            bookAssembler.ClearBook(selectedBook.gameObject);
-            selectedBook = null;
-            ChangeStateLeaving();
+            if (bookObj == null) continue;
+            BookParts bookComponent = bookObj.GetComponent<BookParts>();
+            if (bookComponent == null) continue;
+
+            var theBook = bookComponent.bookData;
+
+            if (isAccept)
+            {
+                if (!theBook.isBorrowed)
+                    transactionManager.Borrowing(theNPC, System.DateTime.Now.ToString("yyyy-MM-dd"));
+                else
+                    transactionManager.Returning(theNPC, theBook, System.DateTime.Now.ToString("yyyy-MM-dd"));
+            }
+            else
+            {
+                if (!theBook.isBorrowed)
+                {
+                    theNPC.bookRequestId = 0;
+                    theNPC.bookRequested = null;
+                }
+            }
+            bookAssembler.ClearBook(bookObj);
         }
-        else
-        {
-            Debug.Log("Unable to reject returning book request.");
-        }
+
+        ChangeStateLeaving();
     }
 
     private void ChangeStateLeaving()
     {
         if (bookAssembler.activeBooks.Count == 0)
         {
+            cardAssembler.ClearCard();
             currentTransactionNpc.currentState = NPCState.Leaving;
             currentTransactionNpc = null;
-        }
-        else
-        {
-            return;
         }
     }
 }

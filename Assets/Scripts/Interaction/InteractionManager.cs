@@ -6,6 +6,8 @@ using UnityEngine.EventSystems;
 public class InteractionManager : MonoBehaviour
 {
     private IInteractable currentSelected;
+    private float lastClickTime;
+    [SerializeField] private float doubleClickThreshold = 0.3f;
 
     // Update is called once per frame
     void Update()
@@ -20,12 +22,22 @@ public class InteractionManager : MonoBehaviour
                 IInteractable interactable = hit.collider.GetComponent<IInteractable>();
                 if (interactable != null)
                 {
-                    if (currentSelected != null && !currentSelected.Equals(null))
+                    float timeSinceLastClick = Time.time - lastClickTime;
+                    if (timeSinceLastClick <= doubleClickThreshold)
                     {
-                        currentSelected.OnUnselect();
+                        interactable.Open();
                     }
-                    currentSelected = interactable;
-                    currentSelected.OnSelect();
+
+                    else
+                    {
+                        if (currentSelected != null && !currentSelected.Equals(null))
+                        {
+                            currentSelected.OnUnselect();
+                        }
+                        currentSelected = interactable;
+                        currentSelected.OnSelect();
+                    }
+                    lastClickTime = Time.time;
                 }
             }
 

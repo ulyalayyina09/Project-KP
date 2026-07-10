@@ -14,7 +14,9 @@ public class Matchmaker : MonoBehaviour
         //    return;
         //}
 
-        List<BookDataTemplate> availableBooks = bookFactory.allBooks.FindAll(b => b.isAvailable);
+        List<BookDataTemplate> availableBooks = bookFactory.allBooks.FindAll(b => 
+            b.isAvailable && !npc.borrowedBookIds.Contains(b.bookId)
+        );
 
         if (availableBooks.Count > 0)
         {
@@ -26,7 +28,9 @@ public class Matchmaker : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("No available books for NPC " + npc.npcId);
+            npc.bookRequestId = 0;
+            npc.bookRequested = null;
+            Debug.LogWarning("No available books for NPC " + npc.npcId + "#Matchmaker");
         }
     }
 }

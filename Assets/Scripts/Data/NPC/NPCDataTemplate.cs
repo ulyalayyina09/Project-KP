@@ -24,4 +24,9 @@ public class NPCDataTemplate : ScriptableObject
 
     public int bookRequestId;
     public BookDataTemplate bookRequested;
+
+    [Header("NPC Card")]
+    public System.DateTime npcBirthDate;
+    public string npcAddress;
+    public System.DateTime cardExpDate;
 }

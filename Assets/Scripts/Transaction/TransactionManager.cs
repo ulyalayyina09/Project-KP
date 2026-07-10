@@ -38,6 +38,7 @@ public class TransactionManager : MonoBehaviour
 
         book.currentLoanId = entry.loanId;
         npc.bookRequestId = 0;
+        npc.bookRequested = null;
     }
 
     public void Returning(NPCDataTemplate npc, BookDataTemplate book, string date)
@@ -67,5 +68,6 @@ public class TransactionManager : MonoBehaviour
 
         book.currentLoanId = null;
         npc.bookRequestId = 0;
+        npc.bookRequested = null;
     }
 }

@@ -6,4 +6,5 @@ public interface IInteractable
 {
     void OnSelect();
     void OnUnselect();
+    void Open();
 }

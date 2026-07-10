@@ -41,7 +41,7 @@ public class NpcManager : MonoBehaviour
             Debug.LogWarning("No NPC data available to spawn.");
             return;
         }
-
+        
         int randomIndex = Random.Range(0, npcFactory.allNPCs.Count);
         NPCDataTemplate npcData = npcFactory.allNPCs[randomIndex];
 

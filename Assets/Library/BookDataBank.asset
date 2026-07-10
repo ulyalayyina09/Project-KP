@@ -14,14 +14,36 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Title:
   - Harry Potter
-  - Naruto
-  - Frieren
+  - Pride and Prejudice
+  - Narnia
   - The Hunger Games
+  - Jane Eyre
+  - Twilight
+  - Phantom of the Opera
+  - Caraval
+  - Six of Crows
+  - The Hobbit
+  - Percy Jackson
+  - The Maze Runner
+  - Throne of Glass
+  - Divergent
+  - The Poppy War
   Description:
   - cerita 1
   - cerita 2
   - cerita 3
   - cerita 4
+  - cerita 5
+  - cerita 6
+  - cerita 7
+  - cerita 8
+  - cerita 9
+  - cerita 10
+  - cerita 11
+  - cerita 12
+  - cerita 13
+  - cerita 14
+  - cerita 15
   bookCoverSprite: {fileID: 21300000, guid: fe1c2ddba79f50d4c9e44a4f291c616b, type: 3}
   bookLabelSprite: {fileID: 21300000, guid: c21574f5b1dc76640ae7a14202d04d3a, type: 3}
   bookPaperSprite: {fileID: 21300000, guid: eac8f739dcbb23841986a5de2b68fac4, type: 3}

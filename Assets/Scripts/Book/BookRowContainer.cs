@@ -7,4 +7,5 @@ public class BookRowContainer : MonoBehaviour
     public TextMeshProUGUI txtID;
     public TextMeshProUGUI txtTitle;
     public TextMeshProUGUI txtStatus;
+    //public ButtonController btnInspect;
 }

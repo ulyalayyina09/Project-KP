@@ -40,7 +40,7 @@ public class BookTable : MonoBehaviour
             if (container != null)
             {
                 container.txtNo.text = (i + 1).ToString();
-                container.txtID.text = currentBook.bookId + " - " + currentBook.copyId;
+                container.txtID.text = currentBook.bookId.ToString("D2") + " - " + currentBook.copyId.ToString("D2");
                 container.txtTitle.text = currentBook.bookTitle;
                 if (currentBook.isAvailable == true)
                 {

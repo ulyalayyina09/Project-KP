@@ -7,6 +7,7 @@ public class NPCBank : ScriptableObject
 {
     public string[] npcFirstNames;
     public string[] npcLastNames;
+    public string[] npcAddresses;
 
     public Sprite[] hairFront;
     public Sprite[] hairBack;

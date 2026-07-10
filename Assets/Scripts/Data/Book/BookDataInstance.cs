@@ -6,19 +6,32 @@ public class BookDataInstance : MonoBehaviour
 {
     [SerializeField] private int bookVariantTotal = 10;
     [SerializeField] private int totalLibBooks = 0;
+    [SerializeField] private int maxCopyPerBook = 5;
     public List<BookDataTemplate> allBooks = new List<BookDataTemplate>();
     [SerializeField] private BookBank bank;
 
     public void GenerateBooks()
     {
         int globalIDCounter = 1; 
+        allBooks.Clear();
 
-        for (int i = 0; i < bookVariantTotal; i++)
+        List<int> availableTitle = new List<int>();
+        for (int k = 0; k < bank.Title.Length; k++)
         {
-            int selectedTitleIndex = Random.Range(0, bank.Title.Length);
+            availableTitle.Add(k);
+        }
+
+        int actualVariants = Mathf.Min(bookVariantTotal, bank.Title.Length);
+        for (int i = 0; i < actualVariants; i++)
+        {
+            int randomListIndex = Random.Range(0, availableTitle.Count);
+            int selectedTitleIndex = availableTitle[randomListIndex];
+
+            availableTitle.RemoveAt(randomListIndex);
+            
             Color selectedColor = new Color(Random.value, Random.value, Random.value);
 
-            int randomCopyCount = Random.Range(1, 8);
+            int randomCopyCount = Random.Range(1, (maxCopyPerBook + 1));
 
             for (int j = 0; j < randomCopyCount; j++)
             {
@@ -32,8 +45,9 @@ public class BookDataInstance : MonoBehaviour
                 newBook.totalCopies = randomCopyCount;
 
                 allBooks.Add(newBook);
-                globalIDCounter++;
             }
+
+            globalIDCounter++;
         }
 
         totalLibBooks = allBooks.Count;

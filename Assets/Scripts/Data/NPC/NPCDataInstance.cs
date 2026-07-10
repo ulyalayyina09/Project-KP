@@ -20,14 +20,28 @@ public class NPCDataInstance : MonoBehaviour
 
             int randomFirstNameIndex = Random.Range(0, bank.npcFirstNames.Length);
             int randomLastNameIndex = Random.Range(0, bank.npcLastNames.Length);
+            int randomAddressIndex = Random.Range(0, bank.npcAddresses.Length);
             newNPC.npcFirstName = bank.npcFirstNames[randomFirstNameIndex];
             newNPC.npcLastName = bank.npcLastNames[randomLastNameIndex];
+            newNPC.npcAddress = bank.npcAddresses[randomAddressIndex];
 
             newNPC.hairFrontIndex = Random.Range(0, bank.hairFront.Length);
             newNPC.hairBackIndex = newNPC.hairFrontIndex;
             newNPC.outfitIndex = Random.Range(0, bank.outfit.Length);
             newNPC.skinIndex = Random.Range(0, bank.skin.Length);
             newNPC.faceIndex = Random.Range(0, bank.face.Length);
+
+            int birthMonth = Random.Range(1, 13);
+            int birthYear = Random.Range(1970, 2010);
+            int maxBirthDay = System.DateTime.DaysInMonth(birthYear, birthMonth);
+            int birthDay = Random.Range(1, maxBirthDay + 1);
+            newNPC.npcBirthDate = new System.DateTime(birthYear, birthMonth, birthDay);
+
+            int expMonth = Random.Range(1, 13);
+            int expYear = 2025;
+            int maxExpDay = System.DateTime.DaysInMonth(expYear, expMonth);
+            int expDay = Random.Range(1, maxExpDay + 1);
+            newNPC.cardExpDate = new System.DateTime(expYear, expMonth, expDay);
 
             // Add the new NPC to the list
             allNPCs.Add(newNPC);

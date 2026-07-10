@@ -18,11 +18,57 @@ MonoBehaviour:
   - Aria
   - Bella
   - Evelyn
+  - Emma
+  - Olivia
+  - Ava
+  - Sophia
+  - Isabella
+  - Mia
+  - Charlotte
+  - Amelia
+  - Chloe
+  - Hannah
+  - Ella
+  - Aurora
+  - Luna
+  - Claire
+  - Audrey
+  - Isla
+  - Violet
   npcLastNames:
   - Willow
   - Evans
   - Black
   - Gaunt
+  - Robinson
+  - Clark
+  - Wright
+  - Scott
+  - Adams
+  - Nelson
+  - Carter
+  - Smith
+  - Johnson
+  - Brown
+  - Williams
+  - Jackson
+  - Harris
+  npcAddresses:
+  - 128 Maple Grove Street, Springfield, Illinois 62704, Unknown
+  - 45 Kensington Avenue, Manchester M14 5AB, Unknown
+  - 72 Willow Crescent, Toronto, Ontario M5V 2T6, Unknown
+  - 19 Harbour View Road, Sydney, NSW 2000, Unknown
+  - 304 Sakura Heights, Chuo-ku, Osaka 541-0053, Unknown
+  - 11 Linden Park Lane, Auckland 1010, Unknown
+  - 89 Riverbank Drive, Dublin D02 X285, Unknown
+  - "156 Bergstra\xDFe, Munich, Bavaria 80331, Unknown"
+  - 24 Rue des Fleurs, Lyon 69002, Unknown
+  - 67 Via Roma, Florence 50122, Unknown
+  - 92 Avenida del Sol, Madrid 28013, Unknown
+  - 18 Canal Street, Amsterdam 1012 WX, Unknown
+  - 233 Oakwood Court, Chicago, Illinois 60616, Unknown
+  - 41 Queen's Road, Birmingham B1 1AA, Unknown
+  - 77 Pine Valley Road, Vancouver, British Columbia V6B 3K9, Unknown
   hairFront:
   - {fileID: 21300000, guid: fe8d3f93a3eaaed40a08cce99862fcae, type: 3}
   - {fileID: 21300000, guid: de86c24ab503fd649a3bf2462c2f5163, type: 3}

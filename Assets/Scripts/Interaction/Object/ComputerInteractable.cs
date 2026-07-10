@@ -23,7 +23,12 @@ public class ComputerInteractable : MonoBehaviour, IInteractable
 
     public void OnUnselect()
     {
-        spriteRenderer.color = new Color(0.23f, 0.23f, 0.23f);
+        spriteRenderer.color = new Color(1f, 1f, 1f, 1f);
         computerCanvas.SetActive(false);
+    }
+
+    public void Open()
+    {
+        
     }
 }

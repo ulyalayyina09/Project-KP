@@ -6,6 +6,7 @@ public class MemberTable : MonoBehaviour
 {
     [SerializeField] private GameObject rowPrefab;
     [SerializeField] private Transform tableContentParent;
+    [SerializeField] private MemberDetailPanel detailPanel;
     private List<NPCDataTemplate> liveNpcList;
     
     private void OnEnable()
@@ -40,7 +41,7 @@ public class MemberTable : MonoBehaviour
             if (container != null)
             {
                 container.txtNo.text = (i + 1).ToString();
-                container.txtID.text = currentNpc.npcId.ToString();
+                container.txtID.text = currentNpc.npcId.ToString("D4");
                 container.txtName.text = currentNpc.npcFirstName + " " + currentNpc.npcLastName;
                 if (currentNpc.isBorrowing == false)
                 {
@@ -50,6 +51,13 @@ public class MemberTable : MonoBehaviour
                 {
                     container.txtStatus.text = "Borrowing";
                 }
+
+                if (detailPanel == null)
+                {
+                    detailPanel = FindObjectOfType<MemberDetailPanel>(true);
+                }
+
+                container.SetupRow(currentNpc, detailPanel);
             }
         }
     }

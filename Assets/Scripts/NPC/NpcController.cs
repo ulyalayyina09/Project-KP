@@ -16,8 +16,10 @@ public class NpcController : MonoBehaviour
     [HideInInspector] public NPCDataTemplate npcData;
     [HideInInspector] public Transform tablePoint;
     [HideInInspector] public Transform exitPoint;
+    private LevelManager lvManager;
     private Matchmaker matchmaker;
     private BookAssembler bookAssembler;
+    private CardAssembler cardAssembler;
     [SerializeField] private float walkSpeed = 2f;
 
     // Update is called once per frame
@@ -33,6 +35,9 @@ public class NpcController : MonoBehaviour
 
                     Decisioner decisioner = FindObjectOfType<Decisioner>();
                     decisioner.SetCurrentTransactionNpc(this);
+
+                    cardAssembler = FindObjectOfType<CardAssembler>();
+                    cardAssembler.AssembleCard(npcData);
 
                     //nentuin jenis transaksi
                     int transactionType = Random.Range(1, 3);
@@ -54,15 +59,24 @@ public class NpcController : MonoBehaviour
                         }
                         Debug.Log("NPC " + npcData.npcId + " is requesting to return " + npcData.borrowingTotal + " book(s).");
                     }
-                    else
+                    else //borrow
                     {
                         matchmaker = FindObjectOfType<Matchmaker>();
                         matchmaker.Matching(npcData);
+                        
+                        if (npcData.bookRequested != null)
+                        {
+                            bookAssembler = FindObjectOfType<BookAssembler>();
+                            bookAssembler.AssembleBook(npcData.bookRequested);
 
-                        bookAssembler = FindObjectOfType<BookAssembler>();
-                        bookAssembler.AssembleBook(npcData.bookRequested);
-
-                        Debug.Log("NPC " + npcData.npcId + " is requesting to borrow " + npcData.bookRequestId + " (" + npcData.bookRequested.bookTitle + ")");
+                            Debug.Log("NPC " + npcData.npcId + " is requesting to borrow " + npcData.bookRequestId + " (" + npcData.bookRequested.bookTitle + ")");
+                        }
+                        else
+                        {
+                            Debug.Log("No book available to borrow #NpcController");
+                            cardAssembler.ClearCard();
+                            currentState = NPCState.Leaving;
+                        }
                     }
                 }
                 break;
@@ -75,11 +89,13 @@ public class NpcController : MonoBehaviour
                 if (exitPoint != null)
                 {
                     MoveTo(exitPoint.position);
-
                     if (Vector3.Distance(transform.position, exitPoint.position) < 0.1f)
                     {
                         Debug.Log("NPC " + npcData.npcId + " has left the library.");
                         Destroy(gameObject); // NPC leaves the scene
+                        
+                        lvManager = FindObjectOfType<LevelManager>();
+                        lvManager.DecreaseQuota();
                     }
                 }
                 break; 

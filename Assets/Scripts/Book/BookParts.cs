@@ -9,6 +9,7 @@ public class BookParts : MonoBehaviour
     public SpriteRenderer paper;
 
     public GameObject selectedOutline;
+    public GameObject actionButton;
 
     [HideInInspector] public BookDataTemplate bookData;
 }

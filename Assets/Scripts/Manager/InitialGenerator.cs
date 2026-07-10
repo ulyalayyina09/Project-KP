@@ -9,11 +9,23 @@ public class InitialGenerator : MonoBehaviour
     [SerializeField] private Matchmaker matchmaker;
     [SerializeField] private TransactionManager transactionManager;
 
-    void Start()
+    void Awake()
     {
+        if (bookFactory == null)
+            Debug.LogError("BookDataInstance is not assigned in InitialGenerator.");
+        if (npcFactory == null)
+            Debug.LogError("NPCDataInstance is not assigned in InitialGenerator.");
+        if (matchmaker == null)
+            Debug.LogError("Matchmaker is not assigned in InitialGenerator.");
+        if (transactionManager == null)
+            Debug.LogError("TransactionManager is not assigned in InitialGenerator.");
+        
         bookFactory.GenerateBooks();
         npcFactory.GenerateNPCs();
-
+    }
+    
+    void Start()
+    {
         InitialBorrowing();
     }
 

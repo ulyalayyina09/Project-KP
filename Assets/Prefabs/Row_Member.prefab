@@ -322,9 +322,10 @@ GameObject:
   - component: {fileID: 5393441751738064112}
   - component: {fileID: 5938107107199221443}
   - component: {fileID: 6546021510197925974}
-  - component: {fileID: 7715532650869404610}
   - component: {fileID: 6901030459419962395}
   - component: {fileID: 3620470598638641987}
+  - component: {fileID: 4657148025423085533}
+  - component: {fileID: 5492959163848786002}
   m_Layer: 5
   m_Name: Row_Member
   m_TagString: Untagged
@@ -413,28 +414,12 @@ MonoBehaviour:
   m_ChildAlignment: 0
   m_Spacing: 0
   m_ChildForceExpandWidth: 0
-  m_ChildForceExpandHeight: 1
+  m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 1
   m_ChildControlHeight: 1
   m_ChildScaleWidth: 0
   m_ChildScaleHeight: 0
   m_ReverseArrangement: 0
---- !u!114 &7715532650869404610
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6458477898040589919}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: badce80d24aaf2848bb7608b8a8cf5be, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  txtNo: {fileID: 8699890388870737592}
-  txtID: {fileID: 2513108478001028431}
-  txtTitle: {fileID: 9127161543333907331}
-  txtStatus: {fileID: 8356308640928663920}
 --- !u!114 &6901030459419962395
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -471,6 +456,40 @@ MonoBehaviour:
   txtID: {fileID: 2513108478001028431}
   txtName: {fileID: 9127161543333907331}
   txtStatus: {fileID: 8356308640928663920}
+  btnDetail: {fileID: 0}
+--- !u!114 &4657148025423085533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6458477898040589919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 306cc8c2b49d7114eaa3623786fc2126, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_IgnoreLayout: 0
+  m_MinWidth: 100
+  m_MinHeight: 50
+  m_PreferredWidth: -1
+  m_PreferredHeight: -1
+  m_FlexibleWidth: -1
+  m_FlexibleHeight: -1
+  m_LayoutPriority: 1
+--- !u!114 &5492959163848786002
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6458477898040589919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates: []
 --- !u!1 &8961407171000904281
 GameObject:
   m_ObjectHideFlags: 0
